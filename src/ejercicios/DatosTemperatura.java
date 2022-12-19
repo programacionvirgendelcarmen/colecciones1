@@ -2,7 +2,19 @@ package ejercicios;
 
 import java.util.Arrays;
 
+/**
+ * Clase que realiza operaciones sobre colecciones de temperaturas
+ * @author Manuel
+ * @version 1.0.0
+ *
+ */
 public class DatosTemperatura {
+    private DatosTemperatura() {
+    }
+
+    /**
+     * @hidden
+     */
     public static void main(String[] args) {
 
         int[] temperaturasMaximas = {12, 14, 15, 16, 18, 15, 14};
@@ -22,7 +34,13 @@ public class DatosTemperatura {
                 nuMeroDiasTemperaturaMinimaPorDebajoMedia);
     }
 
-    private static int calcularNuMeroDiasTemperaturaMinimaPorDebajoMedia(
+    /**
+     * Método que calcula el número de días de una colección de temperaturas
+     * que están por debajo de un valor mínimo
+     * @param temperaturasMinimas colección de datos de tipo int
+     * @return el número de días
+     */
+    public static int calcularNuMeroDiasTemperaturaMinimaPorDebajoMedia(
             int[] temperaturasMinimas) {
         int contadorDeTemparturasPorDebajoMedia = 0;
         final double TEMPERATURA_MEDIA = getTemperaturaMedia(temperaturasMinimas);
@@ -34,7 +52,13 @@ public class DatosTemperatura {
         return contadorDeTemparturasPorDebajoMedia;
     }
 
-    private static double calcularDesviacionTipicaTemperaturasMaximas(int[] temperaturasMaximas) {
+    /**
+     * Método que calcula la desviación típica de una colección de
+     * temperaturas que suelen ser valores máximos
+     * @param temperaturasMaximas la colección temperaturas máximas
+     * @return desviación típica
+     */
+    public static double calcularDesviacionTipicaTemperaturasMaximas(int[] temperaturasMaximas) {
         double suma = 0;
         double valorMedio = getTemperaturaMedia(temperaturasMaximas);
         for (int temperaturaMaxima:  temperaturasMaximas) {
@@ -43,7 +67,16 @@ public class DatosTemperatura {
         return Math.sqrt(suma / (temperaturasMaximas.length - 1));
     }
 
-    private static double[] calcularValorMedioTemperaturas(int[] temperaturasMaximas, int[] temperaturasMinimas) {
+    /**
+     * Método que devuelve una colección de dos datos, siendo el primero
+     * el valor medio de las temperaturas máximas y el segundo el
+     * valor medio de las temperaturas mínimas
+     * @param temperaturasMaximas colección de temperaturas máximas
+     * @param temperaturasMinimas colección de temperaturas mínimos
+     * @return un array de longitud 2, siendo el primero dato el valore medio
+     * de las temperaturas máximas y el segundo de las mínimas
+     */
+    public static double[] calcularValorMedioTemperaturas(int[] temperaturasMaximas, int[] temperaturasMinimas) {
 
         /*double temperaturaMaximaMedia = getTemperaturaMedia(temperaturasMaximas);
         double temperaturaMinimaMedia = getTemperaturaMedia(temperaturasMinimas);
@@ -59,7 +92,12 @@ public class DatosTemperatura {
                 getTemperaturaMedia(temperaturasMinimas)};
     }
 
-    private static double getTemperaturaMedia(int[] temperaturas) {
+    /**
+     * Método que devuelve el valor medio de una colección de temperaturas
+     * @param temperaturas datos a calcular el valor medio
+     * @return la temperatura media
+     */
+    public static double getTemperaturaMedia(int[] temperaturas) {
         int sumaDatos = 0;
         for (int temperatura : temperaturas) {
             sumaDatos += temperatura;
